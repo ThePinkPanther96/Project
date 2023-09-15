@@ -3,8 +3,8 @@ from colorama import Fore
 import threading
 
 SERVER_IP = 'IPAddress' # Server IP address
-USERNAME = 'root'
-PASSWORD = 'Gr24091996*'
+USERNAME = 'Username'
+PASSWORD = 'Password'
 
 client = paramiko.SSHClient()
 
