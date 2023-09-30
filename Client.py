@@ -1,20 +1,21 @@
 import paramiko
 from colorama import Fore
 
-server_ip = 'ip address'  # Server IP address
-user = 'username'
-passwd = 'password'
+SERVER_IP = '192.168.1.50'  # Server IP address
+USERNAME = 'ubuntu'
+PASSWORD = 'Gr24091996*'
+PORT = 2224
 
 print(Fore.YELLOW + f"Starting Script...")
 
 client = paramiko.SSHClient()
-user
+
 # Automatically adds the hostname and server host key to the local ‘HostKeys’.
 client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
 try:
     # Connect to the SSH server.
-    client.connect(server_ip, username=user, password=passwd)
+    client.connect(SERVER_IP, port=PORT, username=USERNAME, password=PASSWORD)
 
     # Open a session channel.
     chan = client.get_transport().open_session()

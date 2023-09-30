@@ -7,16 +7,16 @@ from colorama import Fore
 print(Fore.YELLOW + f"Starting Script...")
 
 # Login Credentials (Replace with actual values)
-user = 'username'
-passwd = 'password'
+USERNAME = 'username'
+PASSWORD = 'password'
 
 # Connection Credentials (Replace with actual values)
-key_path = '/etc/ssh/ssh_host_rsa_key'     # SSH RSA Key path for connection.
-server_ip = 'ip address'                   # Server IP Address.
-port = 22                                  # Connection port to the server.
-listen = 5                                 # Number of connections the server listens to.
+KEY_PATH = '/etc/ssh/ssh_host_rsa_key'     # SSH RSA Key path for connection.
+SERVER_IP = 'IP Address'                   # Server IP Address.
+PORT = 22                                  # Connection port to the server.
+LISTEN = 5                                 # Number of connections the server listens to.
 
-host_key = paramiko.RSAKey(filename=key_path)  # Path to SSH RSA_KEY
+host_key = paramiko.RSAKey(filename=KEY_PATH)  # Path to SSH RSA_KEY
 
 class Server(paramiko.ServerInterface):
     def __init__(self):
@@ -28,7 +28,7 @@ class Server(paramiko.ServerInterface):
         return paramiko.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
 
     def check_auth_password(self, username, password):
-        if username == user and password == passwd:
+        if username == USERNAME and password == PASSWORD:
             return paramiko.AUTH_SUCCESSFUL
         return paramiko.AUTH_FAILED
 
@@ -36,8 +36,8 @@ try:
     # Create a socket and bind to the server address and port.
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    sock.bind((server_ip, port))
-    sock.listen(listen)
+    sock.bind((SERVER_IP, PORT))
+    sock.listen(LISTEN)
     print(Fore.YELLOW + 'Listening for connections...')
     client, addr = sock.accept()
 except Exception as e:
@@ -60,7 +60,7 @@ try:
         print(Fore.GREEN + 'Authenticated!')
         data = chan.recv(1024).decode('utf-8')
         print(Fore.WHITE + f'Received data from client: {data}')
-        chan.send('Yeah, I can see this...'.encode('utf-8'))
+        chan.send(Fore.GREEN + f'Yeah, I can see this...'.encode('utf-8'))
         chan.close()
     else:
         print(Fore.RED + 'Authentication timed out!')
