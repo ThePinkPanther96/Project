@@ -1,21 +1,31 @@
 import paramiko
 from colorama import Fore
-import threading
 
-SERVER_IP = 'IPAddress' # Server IP address
-USERNAME = 'Username'
-PASSWORD = 'Password'
+server_ip = 'ip address'  # Server IP address
+user = 'username'
+passwd = 'password'
+
+print(Fore.YELLOW + f"Starting Script...")
 
 client = paramiko.SSHClient()
-
+user
 # Automatically adds the hostname and server host key to the local ‘HostKeys’.
-client.set_missing_host_key_policy(paramiko.AutoAddPolicy()) # maybe no nedd for ()
+client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
-# Requests a new channel of type ‘session’ from the server (
-client.connect(str(SERVER_IP, username=USERNAME, password=PASSWORD))
+try:
+    # Connect to the SSH server.
+    client.connect(server_ip, username=user, password=passwd)
 
-chan = client.get_transport().open_session()
-chan.send(Fore.GREEN + 'Hey I`m connected 🙂')
-chan.recv(1024)
+    # Open a session channel.
+    chan = client.get_transport().open_session()
 
-client.close()
+    # Send a message to the server.
+    chan.send(Fore.GREEN + 'Hey I`m connected 🙂')
+
+    # Receive data from the server and print it.
+    data = chan.recv(1024)
+    print(data.decode('utf-8'))
+    
+finally:
+    # Close the SSH client.
+    client.close()
