@@ -1,10 +1,10 @@
 import paramiko
 from colorama import Fore
 
-SERVER_IP = '192.168.1.50'  # Server IP address
-USERNAME = 'ubuntu'
-PASSWORD = 'Gr24091996*'
-PORT = 2224
+SERVER_IP = 'ip address'  # Server IP address
+USERNAME = 'username'
+PASSWORD = 'password'
+PORT = 22
 
 print(Fore.YELLOW + f"Starting Script...")
 

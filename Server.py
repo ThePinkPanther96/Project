@@ -4,17 +4,15 @@ import threading
 import sys
 from colorama import Fore
 
-print(Fore.YELLOW + f"Starting Script...")
-
 # Login Credentials (Replace with actual values)
 USERNAME = 'username'
 PASSWORD = 'password'
 
 # Connection Credentials (Replace with actual values)
-KEY_PATH = '/etc/ssh/ssh_host_rsa_key'     # SSH RSA Key path for connection.
-SERVER_IP = 'IP Address'                   # Server IP Address.
-PORT = 22                                  # Connection port to the server.
-LISTEN = 5                                 # Number of connections the server listens to.
+KEY_PATH = '/etc/ssh/ssh_host_rsa_key'  # Server SSH key path.
+SERVER_IP = 'ip address'                # Server IP Address.
+PORT = 22                               # Connection port to the server.
+LISTEN = 5                              # Number of connections the server listens to.
 
 host_key = paramiko.RSAKey(filename=KEY_PATH)  # Path to SSH RSA_KEY
 
@@ -60,7 +58,7 @@ try:
         print(Fore.GREEN + 'Authenticated!')
         data = chan.recv(1024).decode('utf-8')
         print(Fore.WHITE + f'Received data from client: {data}')
-        chan.send(Fore.GREEN + f'Yeah, I can see this...'.encode('utf-8'))
+        chan.send('Yeah, I can see this...'.encode('utf-8'))
         chan.close()
     else:
         print(Fore.RED + 'Authentication timed out!')
