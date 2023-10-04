@@ -16,7 +16,40 @@ During my time as a System Administrator, I was also in charge of hardening and 
 ## Attack Server Side
 1. If Python 3 isn't installed, install it:
    ```
-    apt install python3
+    apt-get install -y python3
    ```
-   sdf
+2. Install pip3:
+   ```
+   sudo apt-get update -y
+   apt-get install -y python3-pip
+   ```
+3. Install Paramiko and Colorama libraries:
+   ```
+   pip3 install colorama paramiko
+   ```
+4. Create a user and password to be used for the backdoor SSH connection:
+   ```
+   useradd <username>
+   passwd <unsername>
+   ```
+5. Set SSH password authentication for the new user:
+   ```
+   ssh -o PasswordAuthentication=yes <username>@<IP address>
+   ```
+6. Create a new Python file and upload the server script:
+   ```
+   vi python.py
+   ```
+7. Fill in the following parameters according to your specifications:
+   ```python
+   # Login Credentials (Replace with actual values)
+   USERNAME = 'username'
+   PASSWORD = 'password'
+   
+   # Connection Credentials (Replace with actual values)
+   KEY_PATH = '/etc/ssh/ssh_host_rsa_key'  # SSH RSA Key path for connection.
+   SERVER_IP = 'ip address'                # Server IP Address.
+   PORT = 22                               # Connection port to the server.
+   LISTEN = 5                              # Number of connections the server listens to.
+   ```
    
