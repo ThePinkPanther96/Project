@@ -52,4 +52,17 @@ During my time as a System Administrator, I was also in charge of hardening and 
    PORT = 22                               # Connection port to the server.
    LISTEN = 5                              # Number of connections the server listens to.
    ```
-   
+   *NOTE!* To avoid occupying port 22 use a different port. In my case, I used port 2222.
+   If you get this error when executing the server script:
+   ```sh
+   Listen/bind/accept failed: [Errno 98] Address already in use
+   ```
+   Restart the sshd service:
+   ```
+   service ssh restart
+   ```
+   If you do want to use port 22 you can try stopping the sshd service:
+   ```
+   service sshd stop
+   ```
+8. 
