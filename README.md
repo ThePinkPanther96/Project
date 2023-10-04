@@ -41,13 +41,13 @@ During my time as a System Administrator, I was also in charge of hardening and 
    vi python.py
    ```
 7. Fill in the following parameters according to your specifications:
-   ```python
+   ```
    # Login Credentials (Replace with actual values)
    USERNAME = 'username'
    PASSWORD = 'password'
    
    # Connection Credentials (Replace with actual values)
-   KEY_PATH = '/etc/ssh/ssh_host_rsa_key'  # SSH RSA Key path for connection.
+   KEY_PATH = '/etc/ssh/ssh_host_rsa_key'  # SSH RSA Keypath for connection.
    SERVER_IP = 'ip address'                # Server IP Address.
    PORT = 22                               # Connection port to the server.
    LISTEN = 5                              # Number of connections the server listens to.
