@@ -57,10 +57,12 @@ During my time as a System Administrator, I was also in charge of hardening and 
    ```sh
    Listen/bind/accept failed: [Errno 98] Address already in use
    ```
+   
    Restart the sshd service:
    ```
    service ssh restart
    ```
+   
    If you do want to use port 22 you can try stopping the sshd service:
    ```
    service sshd stop
