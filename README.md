@@ -79,5 +79,48 @@ For the victim's side, we will need to create a dummy PDF file to conceal the cl
 
 I accomplished this in a Windows 10 environment by using [PyInstaller](https://pypi.org/project/pyinstaller/) to compile the script, along with its dependencies, into a single executable application.
 
+[PyInstaller](https://pypi.org/project/pyinstaller/) bundles a Python application and all its dependencies into a single package. The user can run the packaged app on Windows without installing a Python interpreter or any modules.
+
+*NOTE!* If you don't have Python installed, install it now before beginning.
+
+1. Create a project directory for the virtual environment.
+   
+2. Open CMD or PowerShell as administrator, navigate to the project directory, and create a virtual environment:
+   ```batch
+   cd c:\path\to\project
+   python -m venv venv
+   venv\Scripts\activate.bat
+   ```
+   
+3. In the project directory evnv install dependencies:
+   ```
+   pip install <library>
+   ```
+   
+4. Navigate to the 'scripts' directory:
+   ```
+   cd C:\project\venv\Scripts
+   ```
+
+5. Place the Python script in the 'Scripts' directory.
+
+6. Within the 'Scripts' execute the following command to create an EXE file along with all the required dependencies:
+   ```
+   pyinstaller -F --paths=C:\project\venv\Lib\site-packages <script>.py
+   ```
+   If everything worked well this should be the output:
+   ```
+   Output:
+
+   16645 INFO: Building EXE from EXE-00.toc completed successfully.
+   ```
+   After the operation is complete the EXE file will be located in *C:\project\venv\Scripts\dist*
+
+   
+
+
+
+   
+
 
 
