@@ -77,7 +77,7 @@ During my time as a System Administrator, I was also in charge of hardening and 
 ## Victim Side
 For the victim's side, we will need to create a dummy PDF file to conceal the client script within it. I've chosen a relatively straightforward approach. Please note that this step is optional, and you can use the script as you see fit based on your requirements.
 
-I accomplished this in a Windows 10 environment by using (PyInstaller)[https://pypi.org/project/pyinstaller/] to compile the script, along with its dependencies, into a single executable application.
+I accomplished this in a Windows 10 environment by using [PyInstaller](https://pypi.org/project/pyinstaller/) to compile the script, along with its dependencies, into a single executable application.
 
 
 
