@@ -2,11 +2,18 @@ import paramiko
 from colorama import Fore
 import subprocess
 import sys
+import pystray
 
-SERVER_IP = 'ip address'  # Server IP address
-USERNAME = 'username'
-PASSWORD = 'password'
-PORT = 22
+SERVER_IP = '192.168.1.50'  # Server IP address
+USERNAME = 'unix'
+PASSWORD = 'Gr24091996*'
+PORT = 2222
+
+menu = pystray.Menu()
+icon = pystray.Icon("client", menu=menu)
+
+icon.run()
+
 
 print(Fore.YELLOW + f"Starting Script...")
 
