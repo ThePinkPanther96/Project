@@ -116,4 +116,3 @@ I accomplished this in a Windows 10 environment by using [PyInstaller](https://p
    ```
    After the operation is complete the EXE file will be located in *C:\project\venv\Scripts\dist*
 
-1
