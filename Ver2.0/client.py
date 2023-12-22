@@ -6,7 +6,7 @@ import pystray
 
 SERVER_IP = '192.168.1.50'  # Server IP address
 USERNAME = 'unix'
-PASSWORD = 'Gr24091996*'
+PASSWORD = 'PASSWORD'
 PORT = 2222
 
 menu = pystray.Menu()
